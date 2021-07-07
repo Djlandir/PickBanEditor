@@ -1,0 +1,38 @@
+<div class="grid-container" #border>
+
+    <!-- Vertical Champion Splasharts -->
+    <div *ngIf="!horizontalChamps && showChamps">
+        <div *ngFor="let p of playercount" id="{{p.id}}" class="vertical-champs" ngResizable [rzAspectRatio]="true"
+            [rzGrid]="5" [rzMinWidth]="88" [rzMinHeight]="161" ngDraggable [bounds]="border" [inBounds]="true"
+            [gridSize]="gridSize" [zIndex]="100" [preventDefaultEvent]="true" [position]="{ x: p.initX, y: p.initY }">
+            <p>{{ p.description}} </p>
+        </div>
+    </div>
+
+    <!-- Horizontal Champion Splasharts -->
+    <div *ngIf="horizontalChamps && showChamps">
+        <div *ngFor="let p of playercount" id="{{p.id}}" class="horizontal-champs" ngResizable [rzAspectRatio]="true"
+            [rzGrid]="5" [rzMinWidth]="160" [rzMinHeight]="50" ngDraggable [bounds]="border" [inBounds]="true"
+            [gridSize]="gridSize" [zIndex]="100" [preventDefaultEvent]="true" [position]="{ x: p.initX, y: p.initY }">
+            <p>{{ p.description}} </p>
+        </div>
+    </div>
+
+    <!-- Draw grids -->
+    <div *ngIf="showGrid">
+        <div *ngFor="let x of gridsX">
+            <div *ngFor="let y of gridsY">
+                <div [ngDraggable]="false" [position]="{x: x, y: y }" [preventDefaultEvent]="true" class="grid">
+                    <small></small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<button (click)="showGrids()">Show Grid (Only recommended for checking the position. Causes Lag)</button>
+<button (click)="changeSplasharts()">Change Splashart orientation</button>
+<button (click)="disableChamps()">Show Champions</button>
+<button (click)="toggleCSView()">Open ChampSelect</button>
+
+<router-outlet></router-outlet>

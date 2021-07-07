@@ -7,10 +7,12 @@ import { AppComponent } from './app.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularDraggableModule } from 'angular2-draggable';
+import { PbEditorComponent } from './views/pb-editor/pb-editor.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PbEditorComponent
   ],
   imports: [
     BrowserModule,

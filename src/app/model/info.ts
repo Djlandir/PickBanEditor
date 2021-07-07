@@ -1,5 +1,5 @@
 export class Info {
-    id: number;
+    id: string;
     description: string;
     initX: number;
     initY: number;
